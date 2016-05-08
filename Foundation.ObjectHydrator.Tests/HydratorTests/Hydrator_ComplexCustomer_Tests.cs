@@ -11,9 +11,7 @@ namespace Foundation.ObjectHydrator.Tests.HydratorTests
     {
         [Test]
         public void CanLoadSingleComplexCustomer()
-        {
-            int[] values = {1, 2, 3};
-            var args = new object[] {values};
+		{
             var hydrator = new Hydrator<ComplexCustomer>()
                 .With(x => x.HomeAddress, new TypeGenerator<Address>());
             var customer = hydrator.GetSingle();
@@ -23,9 +21,7 @@ namespace Foundation.ObjectHydrator.Tests.HydratorTests
 
         [Test]
         public void CanGetListOfComplexCustomer()
-        {
-            int[] values = {1, 2, 3};
-            var args = new object[] {values};
+		{
             var hydrator = new Hydrator<ComplexCustomer>()
                 .With(x => x.HomeAddress, new TypeGenerator<Address>());
             var customerlist = hydrator.GetList(10);
@@ -39,8 +35,7 @@ namespace Foundation.ObjectHydrator.Tests.HydratorTests
         public void CanLoadSingleComplexCustomerWithAddressList()
         {
             var listSize = 6;
-            var args = new object[] {listSize};
-
+            
             var customer = new Hydrator<ComplexCustomer>()
                 .With(x => x.Addresses, new ListGenerator<Address>(listSize))
                 .With(x => x.FirstName, "Test")
@@ -64,8 +59,7 @@ namespace Foundation.ObjectHydrator.Tests.HydratorTests
         public void CanLoadSingleComplexCustomerWithPhoneList()
         {
             var listSize = 6;
-            var args = new object[] {listSize};
-
+            
             var customer = new Hydrator<ComplexCustomer>()
                 .With(x => x.PhoneNumbers, new ArrayGenerator<string>(listSize, new AmericanPhoneGenerator()))
                 .GetSingle();
@@ -86,7 +80,6 @@ namespace Foundation.ObjectHydrator.Tests.HydratorTests
         [Test]
         public void CanLoadSingleComplexCustomerWithRandomCountOfAddressList()
         {
-            var args = new object[] {};
             var hydrator = new Hydrator<ComplexCustomer>()
                 .With(x => x.Addresses, ListGenerator<Address>.RandomLength());
 
@@ -106,9 +99,9 @@ namespace Foundation.ObjectHydrator.Tests.HydratorTests
         {
             var lastNameDefault = "Lennon";
             var hy = new Hydrator<ComplexCustomer>()
-                .ForAll<Address>(new Hydrator<Address>())
-                .For<IList<Address>>(new Map<IList<Address>>().Using(new ListGenerator<Address>(10)))
-                .For<string>(new Map<string>().Matching(info => info.Name.ToLower() == "lastname").Using(lastNameDefault))
+                .ForAll(new Hydrator<Address>())
+                .For(new Map<IList<Address>>().Using(new ListGenerator<Address>(10)))
+                .For(new Map<string>().Matching(info => info.Name.ToLower() == "lastname").Using(lastNameDefault))
                 .GetSingle();
 
             Assert.AreEqual(lastNameDefault, hy.LastName);

@@ -276,7 +276,7 @@ namespace Foundation.ObjectHydrator.Tests.GeneratorTests
             IGenerator<bool> booleangenerator = new BooleanGenerator();
             var boolvalue = (bool) booleangenerator.Generate();
             Assert.IsNotNull(boolvalue);
-            Assert.IsInstanceOfType(typeof (bool), boolvalue);
+			Assert.IsInstanceOf(typeof (bool), boolvalue);
         }
 
         [Test]
@@ -286,7 +286,7 @@ namespace Foundation.ObjectHydrator.Tests.GeneratorTests
             var tracknumber = (string) trackingnumbergenerator.Generate();
             Assert.IsNotNull(tracknumber);
             Assert.IsTrue(tracknumber.Length == 15);
-            Assert.That(tracknumber, Is.StringStarting("4"));
+			Assert.That(tracknumber, Does.StartWith("4"));
         }
 
         [Test]
@@ -296,7 +296,7 @@ namespace Foundation.ObjectHydrator.Tests.GeneratorTests
             var tracknumber = (string) trackingnumbergenerator.Generate();
             Assert.IsNotNull(tracknumber);
             Assert.IsTrue(tracknumber.Length == 20);
-            Assert.That(tracknumber, Is.StringStarting("1Z"));
+			Assert.That(tracknumber, Does.StartWith("1Z"));
         }
 
         [Test]
@@ -306,7 +306,7 @@ namespace Foundation.ObjectHydrator.Tests.GeneratorTests
             var tracknumber = (string) trackingnumbergenerator.Generate();
             Assert.IsNotNull(tracknumber);
             Assert.IsTrue(tracknumber.Length == 22);
-            Assert.That(tracknumber, Is.StringStarting("91"));
+			Assert.That(tracknumber, Does.StartWith("91"));
         }
 
         [Test]
