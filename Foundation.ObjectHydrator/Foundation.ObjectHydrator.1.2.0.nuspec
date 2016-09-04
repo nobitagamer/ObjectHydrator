@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Foundation.ObjectHydrator</id>
+        <version>1.2.0</version>
+        <title>Foundation.ObjectHydrator</title>
+        <authors>Nguyen Khac Trieu (trieunk@yahoo.com)</authors>
+        <owners>printscharming</owners>
+        <licenseUrl>https://github.com/PrintsCharming/ObjectHydrator/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/nobitagamer/ObjectHydrator</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>This project allows you to pass custom POCO's to it, and have it return an instance of the class populated with randomly generated data. This random data can be overridden by convention.</description>
+        <releaseNotes>1.2.0:
++ Generic EnumGenerator
++ Nullable generators.
+
+This version (1.1.0) added the ability to respect the StringLength attribute of DataAnnotations
+
+Version (1.0.0) added the ability to add generators at instantiation time.
+
+Version (0.7.0) has added some UK related generators and has switched testing frameworks to NUnit
+
+Added FromListGetListGenerator.</releaseNotes>
+        <copyright>Copyright (c) 2009</copyright>
+    </metadata>
+    <files>
+        <file src="bin\Release\Foundation.ObjectHydrator.dll" target="lib\net45\Foundation.ObjectHydrator.dll" />
+        <file src="bin\Release\Foundation.ObjectHydrator.pdb" target="lib\net45\Foundation.ObjectHydrator.pdb" />
+        <file src="bin\Release\Foundation.ObjectHydrator.dll" target="lib\net451\Foundation.ObjectHydrator.dll" />
+        <file src="bin\Release\Foundation.ObjectHydrator.pdb" target="lib\net451\Foundation.ObjectHydrator.pdb" />
+        <file src="bin\Release\Foundation.ObjectHydrator.dll" target="lib\net452\Foundation.ObjectHydrator.dll" />
+        <file src="bin\Release\Foundation.ObjectHydrator.pdb" target="lib\net452\Foundation.ObjectHydrator.pdb" />
+    </files>
+</package>
